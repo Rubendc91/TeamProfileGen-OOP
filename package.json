@@ -1,0 +1,27 @@
+{
+  "name": "teamprofilegen-oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rubendc91/TeamProfileGen-OOP.git"
+  },
+  "author": "Ruben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rubendc91/TeamProfileGen-OOP/issues"
+  },
+  "homepage": "https://github.com/Rubendc91/TeamProfileGen-OOP#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^29.0.3"
+  }
+}
