@@ -11,7 +11,7 @@
   ## Description:
   This Program asks you a series of questions and uses the answers to generate and HTML document containing a roster of the generated team.
   Video Walkthrough: https://drive.google.com/file/d/1M_zYaVDvmdEPY8dvOS-QY_39y43nlV0m/view
-
+  <img width="500" alt="ScreenShot" src="https://user-images.githubusercontent.com/110942378/192704025-d2fc0910-fcbe-4ec6-8886-7301eeb4c2c6.png">
   ## Installation:
   install node.js, npm inquirer and jest.
   ## Usage:
