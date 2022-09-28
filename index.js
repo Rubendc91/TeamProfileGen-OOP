@@ -1,6 +1,7 @@
 const Intern = require("./lib/Intern")
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
+const generateHTML = require('./src/generateHTML');
 
 const inquirer = require("inquirer");
 const path = require("path");
@@ -41,7 +42,9 @@ function TeamMenu() {
             answers.managerName,
             answers.managerId,
             answers.managerEmail,
+            "Manager",
             answers.managerOfficeNumber
+
         )
         console.log(manager);
         Team.push(manager);
@@ -50,10 +53,7 @@ function TeamMenu() {
 }
 
 function createTeam() {
-    console.log(`
-    Adding Team Members
-    =================
-    `);
+
     inquirer.prompt([{
         type: "list",
         name: "teamChoice",
@@ -66,7 +66,12 @@ function createTeam() {
     }]).then((userChoice) => {
         console.log(userChoice);
         if (userChoice.teamChoice === "Engineer") {
+
             function engineerQuestions() {
+                console.log(`
+                Adding Team Engineer
+                =================
+                `);
                 inquirer.prompt([
                     {
                         type: "input",
@@ -93,6 +98,7 @@ function createTeam() {
                         answers.engineerName,
                         answers.engineerId,
                         answers.engineerEmail,
+                        userChoice.teamChoice,
                         answers.gitHub
                     )
                     console.log(engineer);
@@ -103,7 +109,11 @@ function createTeam() {
             engineerQuestions();
 
         } else if (userChoice.teamChoice === "Intern") {
-            function engineerQuestions() {
+            function internQuestions() {
+                console.log(`
+                Adding Team Intern
+                =================
+                `);
                 inquirer.prompt([
                     {
                         type: "input",
@@ -130,6 +140,7 @@ function createTeam() {
                         answers.internName,
                         answers.internId,
                         answers.internEmail,
+                        userChoice.teamChoice,
                         answers.school
                     )
                     console.log(intern);
@@ -137,23 +148,17 @@ function createTeam() {
                     createTeam();
                 });
             }
-            engineerQuestions();
+            internQuestions();
         } else {
-            console.log(Team) 
-            return Team;
+            generateHTML(Team);
+            console.log(Team);
+
         }
     })
 }
 
-function writeFile(data){
-    fs.writeFile('./dist/index.html', data, err => {
-        if (err) {
-            console.log(err);
-            return;
-        } else {
-            console.log("Your team profile has been created!")
-        }
-    })
-};
 
-TeamMenu();
+
+TeamMenu()
+
+
